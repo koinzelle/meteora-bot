@@ -1,7 +1,7 @@
 const axios = require("axios");
 const TelegramBot = require("node-telegram-bot-api");
 
-const TELEGRAM_TOKEN = "8615074268:AAE4EEn4XaMqykk9JXXxe7EmXeRiLsbjarl";
+const TELEGRAM_TOKEN = "8615074268:AAE9YjggWHly2JYHfOuV1sj8zA4tfNLBUZY";
 const CHAT_ID = "1565534524";
 const WALLET = "9bKzuZWaB8k8CCbR9GUBsSwhbumHL4A8RWvZMWaGsX5R";
 const ALERT_THRESHOLD = 5;
