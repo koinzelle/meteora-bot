@@ -11,24 +11,32 @@ let lastAlertPnl = null;
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: false });
 
 async function getPortfolio() {
-    const res = await axios.get(
-        `https://dlmm.datapi.meteora.ag/portfolio/open?user=${WALLET}`
-    );
+    try {
+        const res = await axios.get(
+            `https://dlmm.datapi.meteora.ag/portfolio/open?user=${WALLET}`
+        );
 
-    const pools = res.data.pools || [];
+        const pools = res.data.pools || [];
 
-    if (pools.length === 0) {
-        console.log("Aucune position ouverte sur Météora.");
-        return null;
+        if (pools.length === 0) {
+            console.log("Aucune position ouverte sur Météora.");
+            return null;
+        }
+
+        const total = res.data.total;
+        const balances = parseFloat(total.balances);
+        const pnl = parseFloat(total.pnl);
+        const fees = parseFloat(total.unclaimedFees);
+        const deposit = pools.reduce((sum, p) => sum + parseFloat(p.totalDeposit), 0);
+
+        return { balances, pnl, fees, deposit, pools };
+    } catch (err) {
+        if (err.response && err.response.status === 400) {
+            console.log("Aucune position ouverte sur Météora.");
+            return null;
+        }
+        throw err;
     }
-
-    const total = res.data.total;
-    const balances = parseFloat(total.balances);
-    const pnl = parseFloat(total.pnl);
-    const fees = parseFloat(total.unclaimedFees);
-    const deposit = pools.reduce((sum, p) => sum + parseFloat(p.totalDeposit), 0);
-
-    return { balances, pnl, fees, deposit, pools };
 }
 
 async function check() {
