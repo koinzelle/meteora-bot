@@ -1,9 +1,16 @@
-const axios = require("axios");
+git add .
+git commit -m "securisation variables environnement"
+git push
+git add .
+git commit -m "securisation variables engit add .
+git commit -m "securisation variables environnement"
+git push
+xxxxxxxxxxxconst axios = require("axios");
 const TelegramBot = require("node-telegram-bot-api");
 
-const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
-const CHAT_ID = process.env.CHAT_ID;
-const WALLET = process.env.WALLET;
+const TELEGRAM_TOKEN = "8615074268:AAH9qdDdC7nIhqkW1av46Os5TuAWEu1YQhc";
+const CHAT_ID = "1565534524";
+const WALLET = "9bKzuZWaB8k8CCbR9GUBsSwhbumHL4A8RWvZMWaGsX5R";
 const ALERT_THRESHOLD = 5;
 
 let lastAlertPnl = null;
