@@ -1,19 +1,19 @@
 {
-  "name": "meteora-bot",
+  "name": "immo-veille",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Bot de veille immobilière Antibes / Juan-les-Pins / Golfe-Juan",
+  "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bot.js"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@meteora-ag/dlmm": "^1.9.4",
-    "@solana/web3.js": "^1.98.4",
     "axios": "^1.13.6",
-    "node-telegram-bot-api": "^0.67.0"
+    "cheerio": "^1.0.0",
+    "node-telegram-bot-api": "^0.67.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3"
   }
 }
