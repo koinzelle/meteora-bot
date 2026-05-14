@@ -3,3 +3,6 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "node bot.js"
+
+[environment]
+NODE_VERSION = "20"
